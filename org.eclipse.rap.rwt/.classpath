@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/jetty-all-10.0.0.beta1-uber.jar"/>
+	<classpathentry kind="lib" path="lib/org.apache.commons.fileupload_1.3.2.v20170320-2229.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
