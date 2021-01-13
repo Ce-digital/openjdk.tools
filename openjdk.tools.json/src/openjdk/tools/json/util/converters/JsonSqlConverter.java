@@ -92,9 +92,19 @@ public class JsonSqlConverter {
 				} else if (meta_data.getColumnType(i) == java.sql.Types.JAVA_OBJECT) {
 					item.put(column_name, result_set.getObject(column_name));
 				} else if (meta_data.getColumnType(i) == java.sql.Types.NULL) {
-					item.put(column_name, "");
+					item.put(column_name, JsonMap.NULL);
 				} else {
-					item.put(column_name, result_set.getString(i));
+					if(meta_data.getColumnTypeName(i).equalsIgnoreCase("json") || meta_data.getColumnTypeName(i).equalsIgnoreCase("jsonb")) {
+						if(result_set.getString(i).trim().startsWith("{")) {
+							item.put(column_name, new JsonMap(result_set.getString(i)));
+						}else if(result_set.getString(i).trim().startsWith("[")) {
+							item.put(column_name, new JsonList(result_set.getString(i)));
+						}else {
+							item.put(column_name, result_set.getString(i));
+						}
+					}else {
+						item.put(column_name, result_set.getString(i));
+					}
 				}
 			}
 			output.put(item);
