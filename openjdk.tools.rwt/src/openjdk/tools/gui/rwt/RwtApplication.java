@@ -36,7 +36,7 @@ public abstract class RwtApplication extends AbstractEntryPoint implements Appli
 		properties.put(WebClient.THEME_ID, "application.styles");
 		properties.put(WebClient.PAGE_TITLE, getTitle());
 		properties.put(WebClient.FAVICON, "icon");
-		properties.put( WebClient.PAGE_OVERFLOW, "scrollY" );
+		properties.put(WebClient.PAGE_OVERFLOW, "scrollY" );
 		application.addEntryPoint("/", getClass(), properties);
 	}
 
